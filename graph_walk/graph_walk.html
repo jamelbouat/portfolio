@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph Walk</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body class="bg-light">
+
+    <div class="row p-5">
+        <div class="col-lg-6">
+            <img src="../images/graph.png" alt="graph" style="max-width: 100%">
+        </div>
+        <div class="col-lg-6">
+            <h5>Insert letters between A and E to show the possible combination of walks</h5>
+            <input class="form-control pl-1" type="text">
+            <button class="btn btn-primary w-25 my-4">Try it</button>
+            <h5 class="output bg-info text-white pl-1" style="overflow-x: auto; overflow-y: hidden"></h5>
+        </div>
+    </div>
+
+    <script>
+        let vertices = ["A","B","C","D","E","A","B","C","D","E"];
+        let edges = ["01","12","23","34","40","05","16","27","38","49","57","58","68","69","79",
+                     "10","21","32","43","04","50","61","72","83","94","75","85","86","96","97"];
+
+        $("button").click(function () {
+            let input = $("input").val();
+            let Length = input.length;
+            let output = "";
+            let possibleValue1 = "";
+            let possibleValue2 = "";
+
+            // Accepts only letters between A and E
+            if (!/^[A-E]*$/.test(input)) {
+                $(".output").text("-1");
+            }
+            // input is composed only of letters between A and E
+            else {
+                if (Length === 1) {
+                    let index=vertices.indexOf(input);
+                    output = index+" or "+(index+5).toString();
+                    $(".output").text(output);
+                }
+                else {
+                    for (let i = 0; i < Length - 1; i++) {
+                        let portion = input.charAt(i) + input.charAt(i + 1);
+                        let foundPossibility = "";
+
+                        // The selected (current) two characters are equal
+                        if (portion.charAt(0) === portion.charAt(1)) {
+                            let index = vertices.indexOf(portion.charAt(0));
+                            if (possibleValue1 === "") {
+                                possibleValue1 += index.toString() + (index + 5).toString();
+                                possibleValue2 += (index + 5).toString() + index.toString();
+                            }
+                            else {
+                                possibleValue1 += possibleValue1.substr(-1) + possibleValue1.substr(-2, 1);
+                                possibleValue2 += possibleValue2.substr(-1) + possibleValue2.substr(-2, 1);
+                            }
+                            // Condition : the last letter of input is reached
+                            if (i === Length-2) {
+                                // input is repeatedly composed of the same letter
+                                if (output === "") {
+                                    output += possibleValue1;
+                                }
+                                // input is composed of different letters
+                                else {
+                                    if ((possibleValue1.charAt(0)) === (output.slice(-1))) {
+                                        output += possibleValue1;
+                                    }
+                                    else {
+                                        output += possibleValue2;
+                                    }
+                                }
+                            }
+
+                        // The selected (current) two characters are different
+                        } else {
+                            foundPossibility = findPossibility(portion);
+                            // At this position, the previous two characters are different
+                            if (possibleValue1 === "") {
+                                output += foundPossibility;
+                            }
+                            // At this position, the previous two characters are equal
+                            else {
+                                if ((possibleValue1.substr(-1)) === (foundPossibility.charAt(0))) {
+                                    output += possibleValue1 + foundPossibility;
+                                }
+                                else {
+                                    output += possibleValue2 + foundPossibility;
+                                }
+                                possibleValue1 = "";
+                                possibleValue2 = "";
+                            }
+                        }
+                    }
+
+                    // Check if the input is a Walk or not and output it
+                    let count = 0;
+                    let newSlice = "";
+                    let Slice = output.toString().slice(1, -1);
+                    for (let i = 0; i < Slice.length / 2; i++) {
+                        newSlice += Slice.charAt(i * 2);
+                        if (Slice.charAt(i * 2) === Slice.charAt(i * 2 + 1)) {
+                            count += 1;
+                        }
+                    }
+                    if (count === newSlice.length) {
+                        let finalOutput = output.toString().charAt(0) + newSlice + output.toString().charAt(output.length-1);
+                        let outputLength=finalOutput.length;
+                        let reverseOutput="";
+                        let portion;
+                        // input is repeatedly composed of the same letter
+                        if (/^(.)\1{1,}$/.test(input)) {
+                            // input length is even number
+                            if ((outputLength % 2)===0){
+                                reverseOutput=finalOutput.slice(-1)+finalOutput.slice(0,-1);
+                                $(".output").text(finalOutput +" or "+ reverseOutput);
+                            }
+                            // input length is odd number
+                            else {
+                                for (let i = 0; i < (outputLength-1)/2; i++) {
+                                    portion = finalOutput.charAt(2*i + 1)+finalOutput.charAt(2*i);
+                                    reverseOutput+=portion;
+                                }
+                                reverseOutput+=finalOutput.charAt(1);
+                                $(".output").text(finalOutput+" or "+reverseOutput);
+                            }
+                        }
+                        // input is composer of different letters
+                        else {
+                            $(".output").text(finalOutput);
+                        }
+                    }
+                    // No walk was found
+                    else {
+                        $(".output").text("-1");
+                    }
+                }
+            }
+
+            // start of function "find the correct edge"
+            function findPossibility(portion) {
+                let allposibilities = [];
+                let foundPossibility = "";
+                let index1 = vertices.indexOf(portion.charAt(0));
+                let index2 = vertices.indexOf(portion.charAt(1));
+                let possibily1 = index1.toString() + index2.toString();
+                let possibily2 = index1.toString() + (index2 + 5).toString();
+                let possibily3 = (index1 + 5).toString() + index2.toString();
+                let possibily4 = (index1 + 5).toString() + (index2 + 5).toString();
+                allposibilities.push(possibily1, possibily2, possibily3, possibily4);
+
+                for (let j = 0; j < allposibilities.length; j++) {
+                    if (edges.includes(allposibilities[j])) {
+                        foundPossibility += allposibilities[j];
+                    }
+                }
+                return foundPossibility;
+            }
+            // end of function "find the correct edge"
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>parkingApp</title>
+    <meta name="author" content="BOUATMANE Djamel">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleSheet.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap'></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+<div id="id" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <!-- slideshow container -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/parking-1.jpg" alt="parking">
+        </div>
+        <div class="carousel-item">
+            <img src="images/parking-2.jpg" alt="parking">
+        </div>
+        <div class="carousel-item">
+            <img src="images/parking-3.jpg" alt="parking">
+        </div>
+        <div class="carousel-item">
+            <img src="images/parking-4.jpg" alt="parking">
+        </div>
+    </div>
+
+    <div class="title">
+        <p>parkingApp</p>
+        <span>choose your parking</span>
+    </div>
+    <!-- left and right controls containers -->
+    <a class="carousel-control-prev" href="#id" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#id" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+    <!-- Indicators container-->
+    <ul class="carousel-indicators">
+        <li data-target="#id" data-slide-to="0" class="active"></li>
+        <li data-target="#id" data-slide-to="1"></li>
+        <li data-target="#id" data-slide-to="2"></li>
+        <li data-target="#id" data-slide-to="3"></li>
+    </ul>
+</div>
+
+<h1 class="shadow text-center bg-secondary p-3">Carte de réservation d'un parking</h1>
+<div id="map" class="shadow-lg"></div>
+
+<!--------- modal réservation abonnement -------->
+<div id="abonneModal" class="modal fade">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content p-1 pb-3">
+
+            <div class="modal-header">
+                <h2 class="modal-title">Abonnement</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="table1" class="table table-bordered table-dark table-striped table-hover text-center">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Prix</th>
+                        <th class="w-25">Prix</th>
+                        <th>Réservation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Voiture</td>
+                        <td>
+                            <select id="select1" class="custom-select">
+                                <option value="00" selected>Choisissez :</option>
+                                <option value="01">Abonnement mensuel</option>
+                                <option value="02">Abonnement annuel</option>
+                            </select>
+                        </td>
+                        <td id="cell_Voiture_Abonne"></td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="1">
+                                <label class="custom-control-label mb-3" for="1"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>
+                            <select id="select2" class="custom-select">
+                                <option value="00" selected>Choisissez :</option>
+                                <option value="01">Abonnement mensuel</option>
+                                <option value="02">Abonnement trimestriel</option>
+                                <option value="03">Abonnement annuel</option>
+                            </select>
+                        </td>
+                        <td id="cell_Moto_Abonne"></td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="2">
+                                <label class="custom-control-label mb-3" for="2"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Vélo</td>
+                        <td>
+                            <select id="select3" class="custom-select">
+                                <option value="00" selected>Choisissez :</option>
+                                <option value="01">Abonnement mensuel</option>
+                            </select>
+                        </td>
+                        <td id="cell_Velo_Abonne"></td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="3">
+                                <label class="custom-control-label mb-3" for="3"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-inline-flex m-3 h5">
+                <span class="ml-2">Prix </span>
+                <div id="totalPriceAbonne" class="text-center p-1 ml-2 mr-2 bg-dark text-white"></div><span>
+                Euros</span>
+            </div>
+            <div class="d-flex justify-content-between m-3 h5">
+                <div>
+                    <span>Date</span>
+                    <input type="date" id="dateInput1" class="pl-5 bg-dark text-white">
+                </div>
+                <div>
+                    <span>Heure</span>
+                    <input type="time" id="timeInput1" class="pl-4 bg-dark text-white" value="00:00">
+                </div>
+                <button id="payementAbonne" class="bg-primary text-white">Payement</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--------- modal réservation à l'unité ---------->
+<div id="uniteModal" class="modal fade">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content p-1 pb-3">
+            <div class="modal-header">
+                <h2 class="modal-title">Réservation à l'unité</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="table2" class="table table-bordered table-dark table-striped table-hover text-center">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Tarif</th>
+                        <th class="w-25">Prix</th>
+                        <th>Réservation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Voiture</td>
+                        <td>
+                            <select id="select4" class="custom-select">
+                                <option value="00" selected>Choisissez :</option>
+                                <option value="01">Durée 15 mn</option>
+                                <option value="02">Durée 30 mn</option>
+                                <option value="03">Durée 1h </option>
+                                <option value="04">Durée 1h30 </option>
+                                <option value="05">Durée 4h </option>
+                                <option value="06">Durée 8h </option>
+                                <option value="07">Durée 12h </option>
+                            </select>
+                        </td>
+                        <td id="cell_Voiture_Unite"></td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="4">
+                                <label class="custom-control-label mb-3" for="4"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>
+                            <select id="select5" class="custom-select">
+                                <option value="00" selected>Choisissez :</option>
+                                <option value="01">Durée 15 mn</option>
+                                <option value="02">Durée 30 mn</option>
+                                <option value="03">Durée 24 h</option>
+                            </select>
+                        </td>
+                        <td id="cell_Moto_Unite"></td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="5">
+                                <label class="custom-control-label mb-3" for="5"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Vélo</td>
+                        <td>
+                            <select class="custom-select">
+                                <option>Non determiné</option>
+                            </select>
+                        </td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-inline-flex m-3 h5">
+                <span class="ml-2">Prix </span>
+                <div id="totalPriceUnite" class="text-center p-1 ml-2 mr-2 bg-dark text-white"></div><span>
+                Euros</span>
+            </div>
+            <div class="d-flex justify-content-between m-3 h5">
+                <div>
+                    <span>Date</span>
+                    <input type="date" id="dateInput2" class="pl-5 bg-dark text-white">
+                </div>
+                <div>
+                    <span>Heure</span>
+                    <input type="time" id="timeInput2" class="pl-4 bg-dark text-white" value="00:00">
+                </div>
+                <button id="payementUnite" class="bg-primary text-white">Payement</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--------- modal payement -------->
+
+<div id="payementModal" class="modal fade">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content p-1 pb-3">
+            <div class="modal-header">
+                <h2 class="modal-title">Payement</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    Le total de la réservation est :
+                    <span id="totalPayement" class="font-weight-bold"></span> euros.
+                </div>
+                <div>
+                    Vous avez reservé pour le : <span id="date" class="font-weight-bold"></span>, à <span id="time"
+                                                                                                      class="font-weight-bold"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-secondary text-center p-3">
+    <span>Djamel BOUATMANE 2019 - ParkingApp</span>
+</div>
+
+</body>
+
+</html>

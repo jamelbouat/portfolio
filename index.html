@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Portfolio</title>
+    <meta name="author" content="BOUATMANE Djamel">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Portfolio, cv, Resume, personal portfolio">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="CSS/style_sheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="JavaScript/script.js"></script>
+</head>
+
+<body>
+
+<!-- Preloader container start -->
+<div class="preloader_container">
+    <div class="preloader_logo">
+        <svg>
+            <circle cx="75" cy="75" r="70" />
+        </svg>
+        <span>DB</span>
+    </div>
+</div>
+<!-- Preloader container end -->
+
+<div class="main_container">
+
+    <!-- Accueil container start -->
+    <div class="accueil_container">
+        <div class="main_logo">
+            <svg>
+                <circle cx="50" cy="50" r="30" />
+            </svg>
+            <span>DB</span>
+        </div>
+        <div class="menu_container">
+            <a href="#a_propos" class="top_cont">À propos</a>
+            <a href="#contact" class="right_cont">CONTACT</a>
+            <a href="#experience" class="bottom_cont">EXPERIENCE</a>
+            <a href="#portfolio" class="left_cont">PORTFOLIO</a>
+        </div>
+        <div class="accueil_container_container">
+            <h1>Djamel BOUATMANE</h1>
+        </div>
+    </div>
+    <!-- Accueil container end-->
+
+    <!-- À propos container start -->
+    <div id="propos_slide" class="a_propos_container">
+        <div class="a_propos_close_button">
+            <img src="images/arrow_down.png" alt="arrow">
+        </div>
+        <div class="a_propos_title">
+            <h1>à propos</h1>
+            <p>qui suis-je</p>
+        </div>
+        <div class="about_me_container">
+            <div class="mask"><img src="images/moi.jpg" alt="image"></div>
+            <div>
+                <p>Je suis étudiant à l'université Rennes 1</p>
+                <p>Formation suivie : Master 1 en Informatique</p>
+                <a href="djamel_bouatmane_CV/CV-Djamel_BOUATMANE.pdf" target="_blank"><div class="cv">Visualiser mon CV</div></a>
+            </div>
+        </div>
+        <div class="education_title">
+            <h1>éducation</h1>
+            <p>mes formations</p>
+        </div>
+        <div class="education_container">
+            <div>
+                <div class="year2">
+                    <h1>2019 - 2020</h1>
+                </div>
+                <div class="formation2">
+                    <h4>Université Rennes 1</h4>
+                    <p>Master 1 en Informatique</p>
+                </div>
+            </div>
+            <div>
+                <div class="year1">
+                    <h1>2018 - 2019</h1>
+                </div>
+                <div class="formation1">
+                    <h4>Université Paris Est Marne-la-Vallée</h4>
+                    <p>Développement Web</p>
+                </div>
+            </div>
+            <div>
+                <div class="year2">
+                    <h1>2017 - 2018</h1>
+                </div>
+                <div class="formation2">
+                    <h4>Université Paris Est Marne-la-Vallée</h4>
+                    <p>DIGITAL U</p>
+                </div>
+            </div>
+            <div>
+                <div class="year1">
+                    <h1>2007 - 2012</h1>
+                </div>
+                <div class="formation1">
+                    <h4>Institut Génie Électrique et Électronique (Algérie) </h4>
+                    <p>Diplôme d'Ingénieur en Commande Électrique</p>
+                </div>
+            </div>
+            <div>
+                <div class="year2">
+                    <h1>2006 - 2007</h1>
+                </div>
+
+                <div class="formation2">
+                    <h4>Lycée Technique (Algérie)</h4>
+                    <p>Baccalauréat Technologie en série Génie Mécanique</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_container">
+            <div class="copyright_container">
+                &#169; 2019 BOUATMANE Djamel
+            </div>
+            <div class="social-media_container">
+                <a href="https://fr.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="linkedin icon"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="images/twitter.png" alt="twitter icon"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram icon"></a>
+                <a href="https://fr-fr.facebook.com/" target="_blank"><img src="images/facebook.png" alt="facebook icon"></a>
+                <a href="https://gsuite.google.fr" target="_blank"><img src="images/google-plus.png" alt="google icon"></a>
+            </div>
+        </div>
+    </div>
+    <!-- À propos container end -->
+
+    <!-- Contact container start -->
+    <div id="contact_slide" class="contact_container">
+        <div class="contact_close_button">
+            <img src="images/arrow_left.png" alt="arrow">
+        </div>
+        <div class="contact_title">
+            <h1>contact</h1>
+            <p>Me contacter</p>
+        </div>
+        <div class="contact_container_container">
+            <div class="contact_form_container">
+                <form action="mailto:djamel.bouatmane6@gmail.com" method="post" enctype="text/plain">
+                    <div class="input1">
+                        <input type="text" required placeholder="Nom">
+                        <input type="email" required placeholder="Email">
+                    </div>
+                    <div class="input2">
+                        <input type="tel" placeholder="Téléphone">
+                    </div>
+                    <div class="TextArea">
+                        <textarea placeholder="Messsage" cols="30" rows="16"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" value="Envoyer">
+                    </div>
+                </form>
+            </div>
+            <div class="contact_map_container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.2312369093024!2d-1.6440882843514104!3d48.12506387922253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480edeed97d41857%3A0xc98885e128694212!2s35%20Avenue%20Professeur%20Charles%20Foulon%2C%2035700%20Rennes!5e0!3m2!1sen!2sfr!4v1581722526531!5m2!1sen!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+        <div class="contact_details_container">
+            <div class="phone_container">
+                <h4>Téléphone</h4>
+                <p>0651789216</p>
+            </div>
+            <div class="email_container">
+                <h4>Email</h4>
+                <p>djamel.bouatmane6@gmail.com</p>
+            </div>
+            <div class="address_container">
+                <h4>Adresse</h4>
+                <p>35 Avenue Professeur Charles Foulon</p>
+                <p>35700, Rennes</p>
+            </div>
+        </div>
+        <div class="footer_container">
+            <div class="copyright_container">
+                &#169; 2019 BOUATMANE Djamel
+            </div>
+            <div class="social-media_container">
+                <a href="https://fr.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="linkedin icon"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="images/twitter.png" alt="twitter icon"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram icon"></a>
+                <a href="https://fr-fr.facebook.com/" target="_blank"><img src="images/facebook.png" alt="facebook icon"></a>
+                <a href="https://gsuite.google.fr" target="_blank"><img src="images/google-plus.png" alt="google icon"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Contact container end -->
+
+    <!-- Experience container start-->
+    <div id="experience_slide" class="experience_container">
+        <div class="experience_close_button">
+            <img src="images/arrow_up.png" alt="arrow">
+        </div>
+        <div class="knowledge_title">
+            <h1>savoirs</h1>
+            <p>Mes connaissances</p>
+        </div>
+        <div class="knowledge_container">
+            <div class="html_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle html_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="html_image" src="images/html.png" alt="html">
+                <h2>HTML5</h2>
+                <p>75%</p>
+            </div>
+            <div class="css_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle css_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="css_image" src="images/css.png" alt="CSS">
+                <h2>CSS3</h2>
+                <p>65%</p>
+            </div>
+            <div class="bootstrap_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle bootstrap_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="bootstrap_image" src="images/bootstrap.jpg" alt="Bootstrap">
+                <h2>Bootstrap</h2>
+                <p>45%</p>
+            </div>
+            <div class="js_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle js_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="js_image" src="images/js.png" alt="JavaScript">
+                <h2>JavaScript/<br>ES5/ES6/<br>TypeScript</h2>
+                <p>40%</p>
+            </div>
+            <div class="jquery_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle jquery_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="jquery_image" src="images/jquery.png" alt="jQuery">
+                <h2>jQuery</h2>
+                <p>30%</p>
+            </div>
+            <div class="php_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle php_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="php_image" src="images/php.png" alt="PHP">
+                <h2>PHP</h2>
+                <p>25%</p>
+            </div>
+            <div class="mysql_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle mysql_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="mysql_image" src="images/mySQL.png" alt="MySQL">
+                <h2>MySQL</h2>
+                <p>40%</p>
+            </div>
+            <div class="react_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle react_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="react_image" src="images/react.png" alt="React">
+                <h2>React JS/ Jest</h2>
+                <p>45%</p>
+            </div>
+            <div class="graphQL_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle graphQL_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="graphQL_image" src="images/graphQL.png" alt="GraphQL">
+                <h2>GraphQL</h2>
+                <p>30%</p>
+            </div>
+            <div class="java_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle java_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="java_image" src="images/javaEE.png" alt="Java">
+                <h2>JAVA/ JEE/<br>REST/ Maven/<br>Jersey/ Tomcat</h2>
+                <p>40%</p>
+            </div>
+            <div class="git_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle git_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="git_image" src="images/git.png" alt="Git">
+                <h2>Git</h2>
+                <p>40%</p>
+            </div>
+            <div class="wordpress_container">
+                <svg>
+                    <circle class="background_circle" cx="100" cy="100" r="90" />
+                    <circle class="top_circle wordpress_circle" cx="100" cy="100" r="90" />
+                </svg>
+                <img class="wordpress_image" src="images/wordpress.png" alt="WordPress">
+                <h2>WordPress</h2>
+                <p>30%</p>
+            </div>
+        </div>
+        <div class="experience_title">
+            <h1>experience</h1>
+            <p>Mes projets</p>
+        </div>
+        <div class="experience_container_container">
+            <div>
+                <div class="experience_year">
+                    <h1>2019</h1>
+                    <span>Avril-Août</span>
+                </div>
+                <div class="experience_work">
+                    <h2>Stage chez Flaminem</h2>
+                    <p>Travail sur l'interface utilisateur du logiciel KYC, React JS, ES5/ES6, TypeScript, GraphQL,
+                        Git, html 5/ CSS3, Sass, carbon-components
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="experience_year">
+                    <h1>2019</h1>
+                    <span>Janvier</span>
+                </div>
+                <div class="experience_work">
+                    <h2>Université Paris Est Marne-la-Vallée</h2>
+                    <p> Projet : épicerie en ligne
+                        <a href="https://rennes-boutique.yo.fr" target="_blank">cliquer ici</a>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="experience_year">
+                    <h1>2018</h1>
+                    <span>Janvier</span>
+                </div>
+                <div class="experience_work">
+                    <h2>Stage chez ËMISPHERES</h2>
+                    <p> Création d'un mini site internet, utilisation de WordPress</p>
+                    <a href="https://eprojects-online.com" target="_blank">eprojects-online.com</a>
+                </div>
+            </div>
+            <div>
+                <div class="experience_year">
+                    <h1>2018</h1>
+                    <span>Novembre</span>
+                </div>
+                <div class="experience_work">
+                    <h2>Université Paris Est Marne-la-Vallée</h2>
+                    <p> Projet : Réservation places de parking :
+                        <a href="parkingApp/index.html" target="_blank">cliquer ici</a>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="experience_year">
+                    <h1>2018</h1>
+                    <span>Septembre</span>
+                </div>
+                <div class="experience_work">
+                    <h2>Université Paris Est Marne-la-Vallée</h2>
+                    <p> Projet : excercice portfolio
+                        <a href="exercise_portfolio/exercise_portfolio.html" target="_blank">cliquer ici</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer_container">
+            <div class="copyright_container">
+                &#169; 2019 BOUATMANE Djamel
+            </div>
+            <div class="social-media_container">
+                <a href="https://fr.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="linkedin icon"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="images/twitter.png" alt="twitter icon"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram icon"></a>
+                <a href="https://fr-fr.facebook.com/" target="_blank"><img src="images/facebook.png" alt="facebook icon"></a>
+                <a href="https://gsuite.google.fr" target="_blank"><img src="images/google-plus.png" alt="google icon"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Experience container end -->
+
+    <!-- Portfolio container start-->
+    <div id="portfolio_slide" class="portfolio_container">
+        <div class="portfolio_close_button">
+            <img src="images/arrow_right.png" alt="arrow">
+        </div>
+        <div class="portfolio_title">
+            <h1>portfolio</h1>
+            <p>Mon travail</p>
+        </div>
+        <div class="portfolio_container_container">
+            <div class="column">
+                <div class="image">
+                    <a href="exercise_portfolio/exercise_portfolio.html" target="_blank">
+                        <img src="images/portfolio.jpg" alt="image">
+                        <div class="portfolio_text">
+                            <h2>Projet 1</h2>
+                            <p>Exercice portfolio (cliquer pour visualiser)</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="image">
+                    <a href="graph_walk/graph_walk.html" target="_blank">
+                        <img src="images/graph.png" alt="image"></a>
+                    <div class="portfolio_text">
+                        <h2>Projet 4</h2>
+                        <p>Graph Walk (cliquer pour visualiser)</p>
+                    </div>
+                </div>
+                <div class="image">
+                    <a href=""><img src="images/plage.jpg" alt="image">
+                        <div class="portfolio_text">
+                            <h2>Projet 7</h2>
+                            <p>En cours</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="image">
+                    <a href="parkingApp/index.html" target="_blank"><img src="images/parking.jpg" alt="image">
+                        <div class="portfolio_text">
+                            <h2>Projet 2</h2>
+                            <p>Projet : Réservation places de parking (cliquer pour visualiser)</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="image">
+                    <a href=""><img src="images/plage.jpg" alt="image"></a>
+                    <div class="portfolio_text">
+                        <h2>Projet 5</h2>
+                        <p>En cours</p>
+                    </div>
+                </div>
+                <div class="image">
+                    <a href=""><img src="images/metro.jpg" alt="image">
+                        <div class="portfolio_text">
+                            <h2>Projet 8</h2>
+                            <p>En cours</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="image">
+                    <a href="https://rennes-boutique.yo.fr" target="_blank">
+                        <img src="images/shopping.png" alt="image">
+                        <div class="portfolio_text">
+                            <h2>Projet 3</h2>
+                            <p>Épicerie en ligne (cliquer pour visualiser)</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="image">
+                    <a href=""><img src="images/metro.jpg" alt="image"></a>
+                    <div class="portfolio_text">
+                        <h2>Projet 6</h2>
+                        <p>En cours</p>
+                    </div>
+                </div>
+                <div class="image">
+                    <a href=""><img src="images/plage.jpg" alt="image"></a>
+                    <div class="portfolio_text">
+                        <h2>Projet 9</h2>
+                        <p>En cours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_container">
+            <div class="copyright_container">
+                &#169; 2019 BOUATMANE Djamel
+            </div>
+            <div class="social-media_container">
+                <a href="https://fr.linkedin.com/" target="_blank"><img src="images/linkedin.png" alt="linkedin icon"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="images/twitter.png" alt="twitter icon"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="Instagram icon"></a>
+                <a href="https://fr-fr.facebook.com/" target="_blank"><img src="images/facebook.png" alt="facebook icon"></a>
+                <a href="https://gsuite.google.fr" target="_blank"><img src="images/google-plus.png" alt="google icon"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio container end -->
+
+</div>
+
+</body>
+
+</html>
